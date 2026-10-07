@@ -6,10 +6,12 @@
 #' This is the name of column that you want to create a separate column for its order identification
 #'
 #' @returns
-#'
+#'This returns a data frame that more rearranges the objects based on the desired column as well as includes the new column with the numbers 1-number of rows
 #' @export
 #'
 #' @examples
+#' Ordered <- Trumpets(castle,"year")
+
 Trumpets <- function(data, column_name) {
   library(dplyr)
   data <- as.data.frame(data)
