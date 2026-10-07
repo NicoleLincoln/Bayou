@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param data
+#' This is the title of the data frame which you want to work in
+#' @param column_name
+#' This is the name of column that you want to create a separate column for its order identification
+#'
+#' @returns
+#'
+#' @export
+#'
+#' @examples
 Trumpets <- function(data, column_name) {
   library(dplyr)
   data <- as.data.frame(data)
