@@ -10,16 +10,11 @@
 #' @export
 #'
 #' @examples
-#' Ordered <- Trumpets(castle,"year")
+#' Like at  Bayour Data Moves to see an example of this function in Action!
 
 Trumpets <- function(data, column_name) {
   library(dplyr)
   data <- as.data.frame(data)
-
-  if (column_name == "date") {
-    data[[column_name]] <- as.Date(data[[column_name]], format = "%m/%d/%Y")
-  }
-
   data %>%
     arrange(.data[[column_name]]) %>%
     mutate(`order-id` = row_number())

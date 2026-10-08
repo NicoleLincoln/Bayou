@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Loading the Package
+
 ```{r setup}
 library(Bayou)
 ```
@@ -156,13 +158,6 @@ Evangeline <- function(gridline_x = FALSE, gridline_y = TRUE) {
 
 
 ```{r}
-
-mycolors<- c("#596f16",
-     "#a9d54d",
-    "#daad0f",
-     "#a189d1",
-     "#87c5ea")
-
 ggplot(castle, aes(x=category, fill = category))+ 
   geom_bar()+
   labs(title= "How many Places of Royalty are Around the World?", subtitle = "Just trying this out", caption = "Again, thi is just a test")+ 
