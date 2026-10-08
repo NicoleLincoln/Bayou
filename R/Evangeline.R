@@ -1,8 +1,23 @@
-library(showtext)
-font_add_google("Unna", "Raymond")
-showtext_auto()
+
+#' The Theme Evangeline
+#'
+#' @param gridline_x
+#' If you want grid lines on your x axis in your visualization, set gridline_x=TRUE, if you do not want them enter gridline_x=FALSE
+#' @param gridline_y
+#' If you want grid lines on your y axis on your visualization, set gridline_y=TRUE, if you do not want them enter gridline_y=FALSE
+#'
+#' @returns
+#' A visualization with a centered title and subtitle will show up. An additional feature of this theme is the x axis titles being titled and centered.
+#' @export
+#'
+#' @examples
+#' Look at Theme_Evangeline for examples on how the theme is used
 
 Evangeline <- function(gridline_x = FALSE, gridline_y = TRUE) {
+  library(showtext)
+  font_add_google("Unna", "Raymond")
+  showtext_auto()
+
   gridline <- element_line(
     linetype = "dashed",
     linewidth = 0.15,

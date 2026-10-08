@@ -2,7 +2,7 @@
 % Please edit documentation in R/Trumpets.R
 \name{Trumpets}
 \alias{Trumpets}
-\title{Title}
+\title{Trumpets}
 \usage{
 Trumpets(data, column_name)
 }
@@ -11,6 +11,12 @@ Trumpets(data, column_name)
 
 \item{column_name}{This is the name of column that you want to create a separate column for its order identification}
 }
+\value{
+This returns a data frame that more rearranges the objects based on the desired column as well as includes the new column with the numbers 1-number of rows
+}
 \description{
-Title
+Trumpets
+}
+\examples{
+Like at  BayouDataMoves.Rmd to see an example of this function in Action!
 }

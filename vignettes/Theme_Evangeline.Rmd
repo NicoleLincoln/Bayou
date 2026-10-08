@@ -1,0 +1,34 @@
+---
+title: "Theme_Evangeline"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Theme_Evangeline}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Bayou)
+```
+
+```{r}
+mycolors<- c("#596f16",
+             "#a9d54d",
+             "#daad0f",
+             "#a189d1",
+             "#87c5ea")
+library(ggplot2)
+ggplot(castle, aes(x=category, fill = category))+ 
+  geom_bar()+
+  labs(title= "How many Places of Royalty are Around the World?", subtitle = "Just trying this out", caption = "Again, thi is just a test")+ 
+  Evangeline()+ 
+  scale_fill_manual(values= mycolors)
+```
+

@@ -3,3 +3,5 @@ mycolors<- c("#596f16",
              "#daad0f",
              "#a189d1",
              "#87c5ea")
+
+#put this in readme to run it first

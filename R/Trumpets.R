@@ -1,4 +1,4 @@
-#' Title
+#' Trumpets
 #'
 #' @param data
 #' This is the title of the data frame which you want to work in
@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' Like at  Bayour Data Moves to see an example of this function in Action!
+#' Like at  BayouDataMoves.Rmd to see an example of this function in Action!
 
 Trumpets <- function(data, column_name) {
   library(dplyr)

@@ -1,0 +1,26 @@
+meta:
+  name:
+    short: Alex Nicole
+    full: Alexandra Nicole
+
+logo:
+  images:
+    small: STAT-306-Logo.png
+
+typography:
+  fonts:
+    - family: Unna
+      source: google
+  base: Unna
+
+color:
+  palette:
+    Naveen: "#596f16"
+    Tiana: "#a9d54d"
+    Gumbo: "#daad0f"
+    Flower: "#a189d1"
+    River: "#87c5ea"
+
+  primary: "#a9d54d"
+  secondary: "#87c5ea"
+  warning: "#daad0f"
