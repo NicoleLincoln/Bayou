@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' message("Look at BayouDataMoves.Rmd to see an example of this function in action!")
+#'Look at BayouDataMoves to see an example of this function in action!
 
 Trumpets <- function(data, column_name) {
   library(dplyr)
