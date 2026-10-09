@@ -12,7 +12,7 @@ Evangeline(gridline_x = FALSE, gridline_y = TRUE)
 \item{gridline_y}{If you want grid lines on your y axis on your visualization, set gridline_y=TRUE, if you do not want them enter gridline_y=FALSE}
 }
 \value{
-hey
+A visualization with a centered title and subtitle will show up. An additional feature of this theme is the x axis titles being titled and centered.
 }
 \description{
 The Theme Evangeline

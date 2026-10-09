@@ -3,14 +3,15 @@ Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
     person("Alexandra", "Lozanguiez", ,"first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: This package is an extension of my love of The Princess and the Frog, which includes a theme, helper function, and vignettes. This package can help in creating minimalist visualizations with pops of color as well as helping in ordering data. I hope you all enjoy it :).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
     dplyr,
-    ggplot2
+    ggplot2,
+    showtext
 Suggests: 
     knitr,
     rmarkdown

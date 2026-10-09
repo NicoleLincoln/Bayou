@@ -15,7 +15,9 @@
 Trumpets <- function(data, column_name) {
   library(dplyr)
   data <- as.data.frame(data)
-  data %>%
+
+  My_Ordered <- data %>%
     arrange(.data[[column_name]]) %>%
     mutate(`order-id` = row_number())
+  return(My_Ordered)
 }

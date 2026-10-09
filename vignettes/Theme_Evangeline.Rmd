@@ -14,10 +14,20 @@ knitr::opts_chunk$set(
 )
 ```
 
+# LOAD THIS FIRST 
 ```{r setup}
 library(Bayou)
+library(tidyverse) 
+castle <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-09-01/world_castles.csv")
 ```
 
+  I have created a theme called Evangeline. If this word sounds familiar, let me tell you this word carries deep beauty. In The Princess and the Frog, Evangeline is a beautiful star in the sky. She helps guide Tiana, Naveen, and Ray throughout their adventure in the Bayou, helping them find what they really need within themselves to feel accomplished. I hold her in very high regard, as in the movie, she serves as a symbol that both hope and hard work will get you what you want. So, I created this theme in her name. 
+
+	Personally, I really like when words are centered. Therefore, both the title and subtitle are both centered in visualizations. However, since captions tend to be longer than both titles and subtitles, it stays in their usual place on the left of the visualization. Another feature of the theme is having the x-axis labels be titled and centered so that even if there are multiple categories, it would be easier to read them. Now, sometimes I am not a fan of gridlines, but I would like for people to have the option to choose whether they would like them. So you can also input whether you would like them to be included in the graph, possibly only having dashed x-axis gridlines or even only y-axis dashed gridlines. Finally, I love the idea of customisation, so I have some pre-made color combinations for people to use that relate to the theme of the movie. Feel free to run and use any of the pre-made color combinations for the visualizations. 
+
+# EXAMPLE VISUALIZATIONS
+
+*Example #1*
 ```{r}
 mycolors<- c("#596f16",
              "#a9d54d",
@@ -27,7 +37,28 @@ mycolors<- c("#596f16",
 library(ggplot2)
 ggplot(castle, aes(x=category, fill = category))+ 
   geom_bar()+
-  labs(title= "How many Places of Royalty are Around the World?", subtitle = "Just trying this out", caption = "Again, thi is just a test")+ 
+  labs(title= "How many Landmarks are There Around the World?", subtitle = "Landmarks are not just pretty things to look at. They can also serve as cultural markers, geographical markers, and even have a great amount of cultural significance.There are different types of landmarks and it is important to distinguish between different types of landmarks around they world, as they can have different meanings to different people.", caption = "Figure 1: The Ditribution of Documented Landmarks. There more castles than any othe category of landmarks, while palaces hold the last place position.")+ 
+  Evangeline()+ 
+  scale_fill_manual(values= mycolors)
+```
+
+*Example #2*
+
+```{r}
+ggplot(castle, aes(x=lon,y= lat,color = category))+ 
+  geom_point()+
+  labs(title= "Where are the Landmarks Around the World?", caption = "Figure 2:Makshift Map of the Location of Different Landmarks")+ 
+  Evangeline()+ 
+  scale_color_manual(values = mycolors)
+```
+
+*Example #3* 
+
+```{r}
+ggplot(castle, aes(x=year, y=category, fill = category))+ 
+  geom_violin()+
+  geom_boxplot()+
+  labs(title= "Distribution of When the  Landmarks Were Founded", caption = "Figure 3: The Ditribution of Documented Landmarks. Fortresses were documented earlier, but the median number of each categories differ")+ 
   Evangeline()+ 
   scale_fill_manual(values= mycolors)
 ```
