@@ -10,7 +10,7 @@ vignette: >
 ```{r plot-settings, include=FALSE}
 knitr::opts_chunk$set(
   echo = TRUE,
-  fig.width = 10,
+  fig.width = 20,
   fig.height = 7,
   out.width = "100%",
   fig.align = "center"
