@@ -17,8 +17,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-# LOAD THIS FIRST 
-
 ```{r setup, include=FALSE}
 library(Bayou)
 library(tidyverse) 
