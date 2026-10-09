@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-#' Theme_Evangeline has examples on how the theme is used
+#' #Theme_Evangeline contains examples on how the theme is used
 
 Evangeline <- function(gridline_x = FALSE, gridline_y = TRUE) {
   library(showtext)
