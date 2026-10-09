@@ -18,5 +18,5 @@ This returns a data frame that more rearranges the objects based on the desired 
 Trumpets
 }
 \examples{
-message("Look at BayouDataMoves.Rmd to see an example of this function in action!")
+Look at BayouDataMoves to see an example of this function in action!
 }
