@@ -18,5 +18,5 @@ A visualization with a centered title and subtitle will show up. An additional f
 The Theme Evangeline
 }
 \examples{
-Look at Theme_Evangeline for examples on how the theme is used
+Theme_Evangeline has examples on how the theme is used
 }
