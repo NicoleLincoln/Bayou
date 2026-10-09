@@ -18,7 +18,11 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(Bayou)
 library(tidyverse) 
-castle <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-09-01/world_castles.csv")
+castles <- readr::read_csv(
+  "https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-09-01/world_castles.csv",
+  n_max = 1000,
+  show_col_types = FALSE
+)
 ```
 
   I have created a theme called Evangeline. If this word sounds familiar, let me tell you this word carries deep beauty. In The Princess and the Frog, Evangeline is a beautiful star in the sky. She helps guide Tiana, Naveen, and Ray throughout their adventure in the Bayou, helping them find what they really need within themselves to feel accomplished. I hold her in very high regard, as in the movie, she serves as a symbol that both hope and hard work will get you what you want. So, I created this theme in her name. 
