@@ -10,17 +10,17 @@ vignette: >
 ```{r plot-settings, include=FALSE}
 knitr::opts_chunk$set(
   echo = TRUE,
-  fig.width = 20,
+  fig.width = 10,
   fig.height = 7,
   out.width = "100%",
   fig.align = "center"
 )
 ```
 
-```{r setup, include=FALSE}
+```{r setup}
 library(Bayou)
 library(tidyverse) 
-castles <- readr::read_csv(
+castle <- readr::read_csv(
   "https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-09-01/world_castles.csv",
   n_max = 1000,
   show_col_types = FALSE
@@ -34,18 +34,35 @@ Personally, I really like when words are centered. Therefore, both the title and
 # EXAMPLE VISUALIZATIONS
 
 *Example #1*
+
 ```{r}
 mycolors<- c("#596f16",
              "#a9d54d",
              "#daad0f",
              "#a189d1",
              "#87c5ea")
+
 library(ggplot2)
-ggplot(castle, aes(x=category, fill = category))+ 
-  geom_bar()+
-  labs(title= "How many Landmarks are There Around the World?", subtitle = "Landmarks are not just pretty things to look at. They can also serve as cultural markers, geographical markers, and even have a great amount of cultural significance.There are different types of landmarks and it is important to distinguish between different types of landmarks around they world, as they can have different meanings to different people.", caption = "Figure 1: The Ditribution of Documented Landmarks. There more castles than any othe category of landmarks, while palaces hold the last place position.")+ 
-  Evangeline()+ 
-  scale_fill_manual(values= mycolors)
+ggplot(castle, aes(x = category, fill = category)) +
+  geom_bar() +
+  labs(
+    title = stringr::str_wrap(
+      "How many Landmarks are There Around the World?",
+      width = 35
+    ),
+    subtitle = stringr::str_wrap(
+      "Landmarks are not just pretty things to look at. They can also serve as cultural markers, geographical markers, and have cultural significance. There are different types of landmarks around the world, with different meanings to different people.",
+      width = 65
+    ),
+    caption = stringr::str_wrap(
+      "Figure 1: The Distribution of Documented Landmarks. There are more castles than any other category of landmark, while palaces are the least common.",
+      width = 90
+    ),
+    x = "category",
+    y = "count"
+  ) +
+  Evangeline() +
+  scale_fill_manual(values = mycolors)
 ```
 
 *Example #2*
@@ -64,8 +81,10 @@ ggplot(castle, aes(x=lon,y= lat,color = category))+
 ggplot(castle, aes(x=year, y=category, fill = category))+ 
   geom_violin()+
   geom_boxplot()+
-  labs(title= "Distribution of When the  Landmarks Were Founded", caption = "Figure 3: The Ditribution of Documented Landmarks. Fortresses were documented earlier, but the median number of each categories differ")+ 
+  labs(title= "Distribution of When the  Landmarks Were Founded", 
+  caption = stringr::str_wrap ("Figure 3: The Ditribution of Documented Landmarks. Fortresses were documented earlier, but the median number of each categories differ", width=35))+ 
   Evangeline()+ 
   scale_fill_manual(values= mycolors)
+  
 ```
 

@@ -44,41 +44,41 @@ Evangeline <- function(gridline_x = FALSE, gridline_y = TRUE) {
   theme(
     # Text elements ==========================================================
     plot.title = element_text(
-      size = 30,
+      size = 18,
       face = "bold",
       color = "#10383A",
       margin = margin(b = 10),
       hjust= 0.5
     ),
     plot.subtitle = element_text(
-      size = 22,
+      size = 12,
       color = "#666e51",
       margin = margin(b = 10),
       hjust=0.5
     ),
     plot.caption = element_text(
-      size = 17,
+      size = 10,
       color = "#809276",
       margin = margin(t = 15),
       hjust = 0
     ),
     axis.text.x = element_text(
-      size = 17,
+      size = 12,
       color = "#10383A",
       angle = 45,
       hjust = 1
     ),
     axis.text.y = element_text(
-      size = 17,
+      size = 12,
       color = "#10383A"
     ),
     axis.title.x = element_text(
-      size = 18,
+      size = 15,
       color = "#10383A",
       margin = margin(t = 10)
     ),
     axis.title.y = element_text(
-      size = 18,
+      size = 15,
       color = "#10383A",
       margin = margin(r = 10)
     ),
