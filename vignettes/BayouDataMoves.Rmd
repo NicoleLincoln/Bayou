@@ -31,7 +31,7 @@ castle <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesda
 
 Sometimes, looking at large data can be very overwhelming. A way to subset the data to only include a subset of variables that we care about. To do that, we can filter a column or row to only certain values. 
 
-For example, let’s take our castle data set. In the category column, there are four different landmark categories that the individuals fall into. Now, in the Princess and the Frog Princess and the Frog, it is said that Tiana and Naveen lived in a castle, living happily ever after. Keeping this in mind, let's see what our data look like when we filter the data to only the landmarks whose category is a castle. 
+For example, let’s take our castle data set. In the category column, there are four different landmark categories that the individuals fall into. Now, in the Princess and the Frog, it is said that Tiana and Naveen lived in a castle, living happily ever after. Keeping this in mind, let's see what our data look like when we filter the data to only the landmarks whose category is a castle. 
 
 ```{r}
 castle %>%
@@ -39,7 +39,7 @@ castle %>%
   summarise(castle_sum =n())
 ```
 
-Now, this code uses a ‘%>%’. What this does is essentially follow sequential steps. For instance, in this code chunk we start with the data set castle, then we filter that data set to only those whose category is “castle”. Then, from the filtered data set, we summarized the number of landmarks that are castles by counting the number of rows that are in the filtered data set. 
+Now, this code uses a ‘%>%’ (Help documentation fo rthe package 'dplyr' for more information). What this does is essentially follow sequential steps. For instance, in this code chunk we start with the data set castle, then we filter that data set to only those whose category is “castle”. Then, from the filtered data set, we summarized the number of landmarks that are castles by counting the number of rows that are in the filtered data set. 
 
 So, in the large ‘castle’ data set, there are 2591 landmarks that are castles. 
 
@@ -91,7 +91,7 @@ castle <- castle %>%
   
 ```
 
-The first two chunks of code deal with the creation and manipulation of the new data set titled ‘totals’.  The first chunk creates the new data set, ‘totals’, which is the castle data frame grouped by category (similar to the Filter section) and only contains the total number of rows that are in each category. So this results in a 4 (category) by 2 table in which the castle has a total of 2591, the fortress has 1180, the palace has 934, and the ruin has 1088. The second code chunk mutates (see the section on Mutate for more information) the new data set ‘totals’ to now have a new column named “prop” which takes the totals of each category and vided is by 5793, which is the total number of landmarks in the data set, creating a proportion for each category. 
+The first two chunks of code deal with the creation and manipulation of the new data set titled ‘totals’.  The first chunk creates the new data set, ‘totals’, which is the castle data frame grouped by category (similar to the Filter section) and only contains the total number of rows that are in each category. So this results in a 4 (category) by 2 table in which the castle has a total of 2591, the fortress has 1180, the palace has 934, and the ruin has 1088. The second code chunk mutates (see the section on Mutate for more information) the new data set ‘totals’ to now have a new column named “prop” which takes the totals of each category and divided is by 5793, which is the total number of landmarks in the data set, creating a proportion for each category. 
 
 The final code chunk is responsible for the actual join component. Within the castle data set, we are writing over the original ‘castle’ data set with another called castle. The new ‘castle’ data set is comprised of joining the old castle data set with the one named ‘totals’ by the unifying column “category. Both data sets share a column named “category” with the same possible values, so RStudio is able to combine both of  the data sets. Now if you run the code you should see the ‘castle’ data set now has two addition columns the are labeled “total” and “prop”. This should look familiar to the original ‘totals’ data set. What the code did was essentially or every row whose category was "castle" the code added the value of the total for castle and the corresponding prop value and so on and so forth for the other three categories.  Now we can compare the proportion of each category with other variables in the data set, something we were not able to do before. 
 
@@ -120,7 +120,7 @@ Now this code arranges the data set in ascending order based on the variable fam
 
 ## Mutate
 
-Mutations in a modern sense are typically tied to biology and negative connotations.  However, in RStudio, a mutation means that you are adding a new column in your data set. Now, in this data set, because we have a wide range of dates when the landmarks were founded, I wanted to know which landmarks are a part of ancient history and which are considered to be modern history. Google has a consensus that anything before the year 500 is considered Ancient History, while everything after the year 500 is considered Modern History. So, the following code does just that. 
+Mutations are typically tied to biology and negative connotations.  However, in RStudio, a mutation means that you are adding a new column in your data set. Now, in this data set, because we have a wide range of dates when the landmarks were founded, I wanted to know which landmarks are a part of ancient history and which are considered to be modern history. Google has a consensus that anything before the year 500 is considered Ancient History, while everything after the year 500 is considered Modern History. So, the following code does just that. 
 
 
 ```{r}
@@ -135,7 +135,7 @@ Based on the code, the castle dataset is mutated to create a new column named �
 
 One of the main goals of this package is to include a useful Helper Function. This placed a lot of pressure on me because there was pressure to create a Function that would be the most efficient and universal Helper Function for people to use. However, a Helpful function is a helper function even if it only helps a subset of people. 
 
-I am in a Biology lab where we research Fireflies. While we are collecting fireflies, we have a very specific way of documenting our fireflies/. We give them an identification number, write down the collection time, mass, temperature, and humidity levels. However, one thing that we use is a metric called season day. Essentially, the first time we see a firefly and collect it is considered day one. So, this gave me the idea: what if there was a function that automatically arranged a data set in ascending order and assigned the number 1 to the number of total rows in the data set. This would allow us to assign an ordered value associated with a specific individual. 
+I am in a Biology lab where we research Fireflies. While we are collecting fireflies, we have a very specific way of documenting our fireflies. We give them an identification number, write down the collection time, mass, temperature, and humidity levels. However, one thing that we use is a metric called season day. Essentially, the first time we see a firefly and collect it is considered day one. So, this gave me the idea: what if there was a function that automatically arranged a data set in ascending order and assigned the number 1 to the number of total rows in the data set. This would allow us to assign an ordered value associated with a specific individual. 
 
 Now, this is essentially what I created my function to do. The function begins by taking the two inputs. The first one is the data frame, and the second is the column name. The function will then arrange the data set, followed by a mutation that creates a new column named “Order-id,” which is the value of the row number after the arrangement. What you will get in return is a new data set named Trumpets with the changes made to the original. 
 
@@ -144,3 +144,5 @@ Trumpets(castle, "year")
 ```
 
 I wanted to create a function that creates a new data set yet keeps the old one so that if anything happens, you can always refer back to the original. This was very important to me because I have run into the issue where I have made too many changes to the data set that sometimes RStudio will not be able to perform certain functions, so being able to go back to the original and reference it is a good way to retrace your steps. 
+
+I hope that you all can take something from these data moves and Helper Funtion that you can apply to your own code. Have Fun Coding!

@@ -6,6 +6,7 @@
 # Welcome To The Bayou!
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The name of this package is “Bayou”. Now you may be wondering why
@@ -51,7 +52,9 @@ time we see a firefly and collect it is considered day one. So, this
 gave me the idea: what if there was a function that automatically
 arranged a data set in ascending order and assigned the number 1 to the
 number of total rows in the data set. This would allow us to assign an
-ordered value associated with a specific individual.
+ordered value associated with a specific individual. Having individuals
+associated with their ordered value can allow us to make visualizations
+that have a new ordered value a possible x or y variable.
 
 ## Example
 
@@ -61,6 +64,21 @@ does:
 
 ``` r
 library(Bayou)
+#> Loading required package: tidyverse
+#> Warning: package 'tidyverse' was built under R version 4.5.3
+#> Warning: package 'tidyr' was built under R version 4.5.3
+#> Warning: package 'readr' was built under R version 4.5.1
+#> Warning: package 'forcats' was built under R version 4.5.3
+#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.4     ✔ readr     2.1.5
+#> ✔ forcats   1.0.1     ✔ stringr   1.5.1
+#> ✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.2
+#> ✔ purrr     1.0.4
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
 castle <- readr::read_csv(
   "https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-09-01/world_castles.csv",
@@ -68,20 +86,20 @@ castle <- readr::read_csv(
   show_col_types = FALSE
 )
 Trumpets(castle, "year")
-#>        qid                  name category country    iso      lat
-#> 1   Q12501   Great Wall of China fortress   China     CN 40.43139
-#> 2  Q131013   Acropolis of Athens fortress  Greece     GR 37.97167
-#> 3 Q1143049 Château de Montsoreau   castle  France     FR 47.21560
-#> 4   Q62378       Tower of London   castle England GB-ENG 51.50820
-#> 5   Q47476              Alhambra   palace   Spain     ES 37.17634
-#> 6   Q80290        Forbidden City   palace   China     CN 39.91583
-#>         lon year year_approx        century
-#> 1 116.56444 -700           0 7th century BC
-#> 2  23.72611 -500           0 5th century BC
-#> 3   0.06220  990           0   10th century
-#> 4  -0.07620 1066           0   11th century
-#> 5  -3.58821 1239           0   13th century
-#> 6 116.39083 1420           0   15th century
+#>        qid                  name category country    iso      lat       lon
+#> 1   Q12501   Great Wall of China fortress   China     CN 40.43139 116.56444
+#> 2  Q131013   Acropolis of Athens fortress  Greece     GR 37.97167  23.72611
+#> 3 Q1143049 Château de Montsoreau   castle  France     FR 47.21560   0.06220
+#> 4   Q62378       Tower of London   castle England GB-ENG 51.50820  -0.07620
+#> 5   Q47476              Alhambra   palace   Spain     ES 37.17634  -3.58821
+#> 6   Q80290        Forbidden City   palace   China     CN 39.91583 116.39083
+#>   year year_approx        century
+#> 1 -700           0 7th century BC
+#> 2 -500           0 5th century BC
+#> 3  990           0   10th century
+#> 4 1066           0   11th century
+#> 5 1239           0   13th century
+#> 6 1420           0   15th century
 #>                                                  wikipedia
 #> 1        https://en.wikipedia.org/wiki/Great_Wall_of_China
 #> 2        https://en.wikipedia.org/wiki/Acropolis_of_Athens
@@ -108,8 +126,8 @@ Trumpets(castle, "year")
 # Theme:
 
 The theme of this Package includes a combination of our accessibility
-principles and customizable colors. I designed the theme to be as
-customizable as possible, but still keeping a rather minimalist look
+principles and customization colors. I designed the theme to be as
+customization as possible, but still keeping a rather minimalist look
 with some pops of color. I think for a lot of data visualizations, the
 addition of too many add-ons and possibly even data points can make the
 visualization look too cluttered and make the visualization harder to
@@ -129,7 +147,7 @@ vignette also includes an example of the use of my helper function. It
 is important to read in detail what these data moves and the helper
 function do because it can make the data exploration process easier. I
 chose to include this because these data moves have been really helpful
-to me when learning how to explore different datasets to understand
+to me when learning how to explore different data sets to understand
 patterns and answer certain questions. The second vignette is named
 ‘Theme_Evangeline’; this goes into detail about the background of the
 theme and how I found it to be useful for myself and how I think it

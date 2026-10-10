@@ -27,9 +27,9 @@ castle <- readr::read_csv(
 )
 ```
 
-I have created a theme called Evangeline. If this word sounds familiar, let me tell you this word carries deep beauty. In The Princess and the Frog, Evangeline is a beautiful star in the sky. She helps guide Tiana, Naveen, and Ray throughout their adventure in the Bayou, helping them find what they really need within themselves to feel accomplished. I hold her in very high regard, as in the movie, she serves as a symbol that both hope and hard work will get you what you want. So, I created this theme in her name. 
+I have created a theme called Evangeline. If this word sounds familiar, let me tell you this word carries deep beauty. In The Princess and the Frog, Evangeline is a beautiful star in the sky. She helps guide Tiana, Naveen, and Ray throughout their adventure in the Bayou, helping them find what they really need within themselves to feel accomplished. I hold her in very high regard. As in the movie, she serves as a symbol that both hope and hard work will get you what you want. So, I created this theme in her name. 
 
-Personally, I really like when words are centered. Therefore, both the title and subtitle are both centered in visualizations. However, since captions tend to be longer than both titles and subtitles, it stays in their usual place on the left of the visualization. Another feature of the theme is having the x-axis labels be titled and centered so that even if there are multiple categories, it would be easier to read them. Now, sometimes I am not a fan of gridlines, but I would like for people to have the option to choose whether they would like them. So you can also input whether you would like them to be included in the graph, possibly only having dashed x-axis gridlines or even only y-axis dashed gridlines. Finally, I love the idea of customisation, so I have some pre-made color combinations for people to use that relate to the theme of the movie. Feel free to run and use any of the pre-made color combinations for the visualizations. 
+Personally, I really like when words are centered. Therefore, both the title and subtitle are both centered in visualizations. However, since captions tend to be longer than both titles and subtitles, it stays in their usual place on the left of the visualization. Another feature of the theme is having the x-axis labels be tilted and centered so that even if there are multiple categories, it would be easier to read them. Now, sometimes I am not a fan of gridlines, but I would like for people to have the option to choose whether they would like them. So you can also input whether you would like them to be included in the graph, possibly only having dashed x-axis gridlines or even only y-axis dashed gridlines. Finally, I love the idea of customisation, so I have some pre-made color combinations for people to use that relate to the theme of the movie. Feel free to run and use any of the pre-made color combinations for the visualizations. 
 
 # EXAMPLE VISUALIZATIONS
 
@@ -41,6 +41,19 @@ mycolors<- c("#596f16",
              "#daad0f",
              "#a189d1",
              "#87c5ea")
+
+Nightlife <- c("#08262D", 
+               "#053C49", 
+               "#105869", 
+               "#edca37", 
+               "#aeb495", 
+               "#558282")
+
+Gumbo <- c("#f6724b", 
+           "#fc8a55", 
+           "#8f4e51", 
+           "#2b3349", 
+           "#223c63")
 
 library(ggplot2)
 ggplot(castle, aes(x = category, fill = category)) +
@@ -72,7 +85,7 @@ ggplot(castle, aes(x=lon,y= lat,color = category))+
   geom_point()+
   labs(title= "Where are the Landmarks Around the World?", caption = "Figure 2:Makshift Map of the Location of Different Landmarks")+ 
   Evangeline()+ 
-  scale_color_manual(values = mycolors)
+  scale_color_manual(values = Gumbo)
 ```
 
 *Example #3* 
@@ -84,7 +97,7 @@ ggplot(castle, aes(x=year, y=category, fill = category))+
   labs(title= "Distribution of When the  Landmarks Were Founded", 
   caption = stringr::str_wrap ("Figure 3: The Ditribution of Documented Landmarks. Fortresses were documented earlier, but the median number of each categories differ", width=35))+ 
   Evangeline()+ 
-  scale_fill_manual(values= mycolors)
+  scale_fill_manual(values= Nightlife)
   
 ```
 
